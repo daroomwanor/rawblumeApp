@@ -1,10 +1,45 @@
 <html>
-        <head>
-                <title>Raw Blume</title>
-                <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-        </head>
-        <body>
-                <h1 style ="padding-left: 330px;padding-top:300px;">Website Coming Soon</h1>
-        </body>
+    <head>
+        <title>Raw Blume</title>
+         <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+		<style>
+			html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+		</style>
+         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+         <link rel="stylesheet" href="/Users/omwanord/ArielApps/rawblumeApp/rawblumeApp/static/css/style.css">
+    </head>
+    <body>
+          <div id="main_container">
+          	<div id=horizontal_navbar>
+          		<div class="w3-top">
+					 <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+						  
+						  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i  style='font-size:20px' class="fa fa-home w3-margin-right"></i>Raw Blume</a>
+						  <div class="w3-dropdown-hover w3-hide-small">
+						    <button class="w3-button w3-padding-large" title="Menu"><i style='font-size:20px' class="fa fa-menu">Menu</i><span class="w3-badge w3-right w3-small w3-green">new</span></button>     
+						    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+						      <a href="#" class="w3-bar-item w3-button">Body Butter</a>
+						      <a href="#" class="w3-bar-item w3-button">Body Scrub</a>
+						      <a href="#" class="w3-bar-item w3-button">Deodorants</a>
+						      <a href="#" class="w3-bar-item w3-button">Soaps</a>
+						      <a href="#" class="w3-bar-item w3-button">Essential Oils</a>
+						    </div>
+						  </div>
+						  
+						  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Shopping Cart"><i style='font-size:24px' class='fas'>&#xf07a;</i><span class="w3-badge w3-right w3-small w3-black">0</span></a>
+						  <a style="float: right;" href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="User"><i style='font-size:24px' class='fas'>&#xf007;</i></a>
+						  
+					 </div>
+				</div>
+
+          	</div>
+          </div>
+    </body>
 
 </html>

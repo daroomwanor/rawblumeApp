@@ -1,5 +1,17 @@
 body{
-        background-image: url(../imgs/bg.JPG);
-        background-position-x: center;
+    background-image: url(../imgs/bg.JPG);
+    background-position-x: center;
     background-position-y: center;
+    background-color: #ffffff;
+
 }
+#main_container{
+	min-height: 600px;
+	border: solid 2px #b5b2b2;
+
+}
+#horizontal_navbar{
+	height: 50px;
+	border: solid 1px #b5b2b2;
+}
+
