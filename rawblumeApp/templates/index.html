@@ -19,7 +19,7 @@
           	<div id=horizontal_navbar>
           		<div class="w3-top">
 					 <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
-						  
+						  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
 						  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i  style='font-size:20px' class="fa fa-home w3-margin-right"></i>Raw Blume</a>
 						  <div class="w3-dropdown-hover w3-hide-small">
 						    <button class="w3-button w3-padding-large" title="Menu"><i style='font-size:20px' class="fa fa-menu">Menu</i><span class="w3-badge w3-right w3-small w3-green">new</span></button>     
@@ -38,8 +38,30 @@
 					 </div>
 				</div>
 
+				<div id="mobileMenu" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+					<div class="w3-card-4 w3-bar-block" style="width:300px">
+				    	<a href="#" class="w3-bar-item w3-button">Body Butter</a>
+				      	<a href="#" class="w3-bar-item w3-button">Body Scrub</a>
+				      	<a href="#" class="w3-bar-item w3-button">Deodorants</a>
+				      	<a href="#" class="w3-bar-item w3-button">Soaps</a>
+				      	<a href="#" class="w3-bar-item w3-button">Essential Oils</a>
+				      	<a href="#" class="w3-bar-item w3-button" title="User"><i class='fas'>&#xf07a;</i> <span class="w3-badge w3-right w3-small w3-green">0</span></a>
+				    </div>
+				</div>
+
           	</div>
           </div>
+          <script type="text/javascript">
+          	
+          	function openNav() {
+				  var x = document.getElementById("mobileMenu");
+				  if (x.className.indexOf("w3-show") == -1) {
+				    x.className += " w3-show";
+				  } else { 
+				    x.className = x.className.replace(" w3-show", "");
+				  }
+				}
+          </script>
     </body>
 
 </html>
