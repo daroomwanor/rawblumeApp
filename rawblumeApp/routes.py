@@ -1,7 +1,7 @@
 import os
 import time
 from flask import render_template, request
-from rawblumeApp import app
+from rawblumeApp import app, db
 
 @app.route("/")
 def index():
