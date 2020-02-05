@@ -12,7 +12,8 @@ def index():
 
 @app.route("/Admin_Panel")
 def Admin_Panel():
-    return render_template('Admin_Panel.html')
+	Users = UsersTable.query.with_entities(UsersTable.firstname).all()
+	return render_template('Admin_Panel.html',data=Users)
 
 
 
