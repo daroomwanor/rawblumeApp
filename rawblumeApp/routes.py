@@ -6,7 +6,9 @@ from rawblumeApp.models import UsersTable
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+	Users = UsersTable.query.with_entities(
+		UsersTable.firstname).all()
+    return render_template('index.html', data=Users)
 
 
 @app.route("/Admin_Panel")
