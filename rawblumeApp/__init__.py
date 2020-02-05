@@ -15,3 +15,4 @@ if __name__ == "__main__":
 
 
 import rawblumeApp.routes
+from rawblumeApp import models 
