@@ -10,9 +10,11 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///rawblumeApp.db'
 
 db = SQLAlchemy(app)
 
-if __name__ == "__main__":
-    app.run()
+
 
 
 import rawblumeApp.routes
 from rawblumeApp import models 
+
+if __name__ == "__main__":
+    app.run()
