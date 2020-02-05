@@ -1,8 +1,38 @@
 <html>
 	<head>
 		<title>Admin Panel</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+		<style>
+			html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+		</style>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+		<link rel="stylesheet" href="/Users/daroomwanor/rawblumeApp/rawblumeApp/static/css/Admin_Panel.css">
+		<script type="text/javascript" src="/Users/daroomwanor/rawblumeApp/rawblumeApp/static/js/Admin_Panel.js"></script>
 	</head>
 	<body>
-		<h1>Welcome to the Admin Panel</h1>
+		<script type="text/javascript" src="{{url_for('static', filename="js/Admin_Panel.js")}}"></script>
+		<div id="centered">
+			<table>
+				<tr>
+					<th><input type="text" name="" placeholder="username"></th>
+				</tr>
+				<tr>
+					<th><input type="text" name="" placeholder="password">
+				</th>
+				<tr>
+					<th><button onclick="processLogin()" class="w3-button w3-teal">Login</button>
+				</th>
+			</table>
+		</div>
+		<div id="main_container">
+			<h1>Welcome Man</h1>
+		</div>
 	</body>
 </html>

@@ -11,3 +11,9 @@ def index():
 @app.route("/Admin_Panel")
 def Admin_Panel():
     return render_template('Admin_Panel.html')
+
+
+
+@app.route("/processLogin")
+def processLogin():
+    return "Successful"
