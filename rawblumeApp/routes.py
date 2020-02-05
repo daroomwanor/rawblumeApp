@@ -2,6 +2,7 @@ import os
 import time
 from flask import render_template, request
 from rawblumeApp import app, db
+from rawblumeApp.models import UsersTable
 
 @app.route("/")
 def index():
@@ -16,4 +17,12 @@ def Admin_Panel():
 
 @app.route("/processLogin")
 def processLogin():
+	users = UsersTable(
+		firstname="Admin",
+		lastname="Root",
+		email="admin@root.com",
+		username="Admin",
+		password="pass")
+	db.session.add(users)
+	db.session.commit()
     return "Successful"
