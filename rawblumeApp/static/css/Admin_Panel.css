@@ -8,6 +8,34 @@
 
 
 #main_container{
-	display: none;
+	display: block;
 
+}
+
+.vertical_navbar{
+	height: 40px;
+    border-bottom: solid 1px black;
+    padding-top: 10px;
+    width: 106%;
+    margin-left: -3px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#display_container{
+	border: solid 1px black;
+    min-height: 500px;
+    min-width: 900px;
+    float: left;
+    margin-left: 2px;
+    width:96%;
+}
+
+.actionBtn{
+	width: 50px;
+    height: 25px;
+    cursor: pointer;
+    border-left: solid 2px black;
+    border-top: solid 1px black;
+    border-radius: 5px;
 }

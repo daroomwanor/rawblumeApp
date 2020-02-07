@@ -21,12 +21,10 @@ def Admin_Panel():
 @app.route("/processLogin", methods=['GET', 'POST'])
 def processLogin():
 	data = json.loads(request.data)
-	print(data)
 	username = data['username']
 	password = data['password']
 	User = UsersTable.query.filter(UsersTable.username == username, UsersTable.password == password).all()
 	if len(User) > 0:
-		print(username)
 		return "Success"
 	else:
 		return "Failed"

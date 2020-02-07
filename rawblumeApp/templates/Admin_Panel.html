@@ -13,28 +13,72 @@
 			html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		</style>
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/Admin_Panel.css') }}">
-		<link rel="stylesheet" href="/Users/daroomwanor/rawblumeApp/rawblumeApp/static/css/Admin_Panel.css">
-		<script type="text/javascript" src="/Users/daroomwanor/rawblumeApp/rawblumeApp/static/js/Admin_Panel.js"></script>
+		<link rel="stylesheet" href="/Users/omwanord/ArielApps/rawblumeApp/rawblumeApp/static/css/Admin_Panel.css">
+		<script type="text/javascript" src="/Users/omwanord/ArielApps/rawblumeApp/rawblumeApp/static/js/Admin_Panel.js"></script>
 	</head>
 	<body>
 		<script type="text/javascript" src="{{url_for('static', filename="js/Admin_Panel.js")}}"></script>
-		<div id="centered">
+		<div id="centered" style="display: None;">
 			<table>
 				<tr>
 					<th><input id="username" type="text" name="" placeholder="username"></th>
 				</tr>
 				<tr>
-					<th><input id="password" type="text" name="" placeholder="password">
+					<th><input id="password" type="password" name="" placeholder="password">
 				</th>
 				<tr>
 					<th><button onclick="processLogin()" class="w3-button w3-teal">Login</button>
 				</th>
 			</table>
-			{{data}}
 
 		</div>
 		<div id="main_container">
-			<h1>{{data}}</h1>
+			<div id="horizontal_navbar" style="position: fixed;">
+          		<div class="w3-top" style="background-color: #dcdcdc;height: 52px;width: 100%">
+					 <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+						  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+						  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i  style='font-size:20px' class="fa fa-home w3-margin-right"></i>Admin Panel</a>
+						  
+						  <a ng-click="changeName()" style="float: right;" href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="User">{{username}} <i style='font-size:24px' class='fa'>&#xf2be;</i></a>
+						  
+					 </div>
+				</div>
+          	</div>
+          	<div style="display: inherit; margin-left: 1px;">
+          		<div style="height: 200px; border: solid 1px black; margin-top: 120px;float: left;width:3%;padding-left: 4px;min-width: 38px;float: left;">
+          			<div>
+          				<div class="vertical_navbar">
+	          				<i style='font-size:20px' class="fa fa-dashboard"></i>
+	          			</div>
+          				<div class="vertical_navbar">
+	          				<i style='font-size:20px' class="fa fa-users"></i>
+	          			</div>
+	          			<div class="vertical_navbar">
+	          				<i style='font-size:20px' class="fa fa-reorder"></i>
+	          			</div>
+	          			<div class="vertical_navbar">
+	          				<i  style='font-size:20px' class="fa fa-building"></i>
+
+	          			</div>          			
+	          			<div class="vertical_navbar">
+	          				<i style='font-size:20px' class="fa fa-wrench"></i>
+	          			</div>
+	          			
+	          		</div>
+          		</div>
+	          	<div style="height: 700px; border:solid 1px black;margin-top: 53px; width: 100%;">
+	          		<div id="display_container">
+	          			<div style="border-bottom: solid 1px black; height: 35px; padding-top:2px;">
+	          				<table>
+	          					<tr>
+	          						<td><span class="w3-card w3-right w3-blue w3-hover-shadow w3-center actionBtn"><i class="fa">&#xf234;</i></span></td>
+	          						<td><span class="w3-card w3-right w3-blue w3-hover-shadow w3-center actionBtn"><i class="fa">&#xf07a;</i></span></td>
+	          					</tr>
+	          				</table>
+	          			</div>
+	          		</div>
+	          	</div>
+          	</div>
 		</div>
 	</body>
 </html>

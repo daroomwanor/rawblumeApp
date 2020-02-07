@@ -12,6 +12,7 @@ function processLogin(){
 		if(this.readyState == 4 && this.status == 200){
 			console.log(this.responseText);
 			document.getElementById('centered').style.display="None";
+			document.getElementById('main_container').style.display="Block";
 			alert(this.responseText);
 		}
 
