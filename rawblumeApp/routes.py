@@ -28,7 +28,8 @@ def processLogin():
 	if len(User) > 0:
 		print(username)
 		return "Success"
-
+	else:
+		return "Failed"
 
 @app.route("/addNewUser", methods=['GET', 'POST'])
 def addNewUser():
