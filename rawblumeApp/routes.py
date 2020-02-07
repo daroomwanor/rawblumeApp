@@ -3,6 +3,7 @@ import time
 from flask import render_template, request
 from rawblumeApp import app, db
 from rawblumeApp.models import UsersTable
+import json
 
 @app.route("/")
 def index():
@@ -24,7 +25,9 @@ def processLogin():
 	password = data['password']
 	User = UsersTable.query.filter(and_(UsersTable.username == username, UsersTable.password == password)).all()
 	if len(User) > 0:
+		print(username)
 		return "Success"
+
 
 @app.route("/processLogin")
 def addNewUser():
