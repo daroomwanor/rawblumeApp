@@ -30,7 +30,7 @@ def processLogin():
 		return "Success"
 
 
-@app.route("/processLogin")
+@app.route("/addNewUser")
 def addNewUser():
 	users = UsersTable(
 		firstname="Admin",
