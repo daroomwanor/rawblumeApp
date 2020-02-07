@@ -16,7 +16,7 @@ class InventoryTable(db.Model):
 	category = db.Column(db.String(120), unique=False, nullable=False)
 	item_id = db.Column(db.String(120), unique=False, nullable=False)
 	unit = db.Column(db.String(120), unique=False, nullable=False)
-	description = db.Column(db.Blob)
+	description = db.Column(db.BLOB)
 
 class appSettingsTable(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
