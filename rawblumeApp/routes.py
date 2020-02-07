@@ -19,6 +19,15 @@ def Admin_Panel():
 
 @app.route("/processLogin")
 def processLogin():
+	data = json.loads(request.data)
+	username = data['username']
+	password = data['password']
+	User = UsersTable.query.filter(and_(UsersTable.username == username, UsersTable.password == password)).all()
+	if len(User) > 0:
+		return "Success"
+
+@app.route("/processLogin")
+def addNewUser():
 	users = UsersTable(
 		firstname="Admin",
 		lastname="Root",
