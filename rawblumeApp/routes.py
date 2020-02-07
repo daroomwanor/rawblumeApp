@@ -24,7 +24,7 @@ def processLogin():
 	print(data)
 	username = data['username']
 	password = data['password']
-	User = UsersTable.query.filter_by(username = username).all()
+	User = UsersTable.query.filter(and_(UsersTable.username == username, UsersTable.password == password)).all()
 	if len(User) > 0:
 		print(username)
 		return "Success"
