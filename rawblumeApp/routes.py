@@ -2,7 +2,7 @@ import os
 import time
 from flask import render_template, request
 from rawblumeApp import app, db
-from rawblumeApp.models import UsersTable
+from rawblumeApp.models import UsersTable, InventoryTable
 import json
 
 @app.route("/", methods=['GET', 'POST'])
@@ -17,6 +17,23 @@ def Admin_Panel():
 	return render_template('Admin_Panel.html',data=Users)
 
 
+@app.route("/addNewItem", methods=['GET', 'POST'])
+def addNewItem():
+	data = json.loads(request.data)
+	item = InventoryTable.query.filter(InventoryTable.name == data['name']).all()
+	if len(item) < 1:
+		Item = InventoryTable(
+			name = data['name'],
+			price = data['price'],
+			category = data['type'],
+			item_id= data['item_id'],
+			unit = data['unit'],
+			description = data['description'])
+		db.session.add(Item)
+		db.session.commit()
+		return "Success"
+	else:
+		return "Failed"
 
 @app.route("/processLogin", methods=['GET', 'POST'])
 def processLogin():

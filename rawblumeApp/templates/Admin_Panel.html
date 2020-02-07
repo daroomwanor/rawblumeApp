@@ -16,7 +16,7 @@
 		<link rel="stylesheet" href="/Users/omwanord/ArielApps/rawblumeApp/rawblumeApp/static/css/Admin_Panel.css">
 		<script type="text/javascript" src="/Users/omwanord/ArielApps/rawblumeApp/rawblumeApp/static/js/Admin_Panel.js"></script>
 	</head>
-	<body>
+	<body ng-app="adminApp" ng-controller="adminCtrl">
 		<script type="text/javascript" src="{{url_for('static', filename="js/Admin_Panel.js")}}"></script>
 		<div id="centered" style="display: None;">
 			<table>
@@ -71,10 +71,69 @@
 	          			<div style="border-bottom: solid 1px black; height: 35px; padding-top:2px;">
 	          				<table>
 	          					<tr>
-	          						<td><span class="w3-card w3-right w3-blue w3-hover-shadow w3-center actionBtn"><i class="fa">&#xf234;</i></span></td>
-	          						<td><span class="w3-card w3-right w3-blue w3-hover-shadow w3-center actionBtn"><i class="fa">&#xf07a;</i></span></td>
+	          						<td><span onclick="addNewUserModal()" class="w3-card w3-right w3-blue w3-hover-shadow w3-center actionBtn"><i class="fa">&#xf234;</i></span></td>
+	          						<td><span onclick="addNewItemModal()" class="w3-card w3-right w3-blue w3-hover-shadow w3-center actionBtn"><i class="fa">&#xf07a;</i></span></td>
 	          					</tr>
 	          				</table>
+	          			</div>
+	          			<div class="w3-modal" id="id01">
+	          				<div class="w3-modal-content">
+	          					<div class="w3-container">
+	          						<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+	          						<table class="w3-table w3-table-all">
+	          							<tr>
+	          								<th>Firstname</th><td><input type="text" name="" ></td>
+	          							</tr>
+	          							<tr>
+	          								<th>Lastname</th><td><input type="text" name=""></td>
+	          							</tr>
+	          							<tr>
+	          								<th>Email</th><td><input type="text" name=""></td>
+	          							</tr>
+	          							<tr>
+	          								<th>Username</th><td><input type="text" name=""></td>
+	          							</tr>
+	          							
+	          							<tr>
+	          								<th>Password</th><td><input type="text" name=""></td>
+	          							</tr>
+	          							<tr>
+	          								<td><input type="button" name="" value="Submit"></td>
+	          							</tr>
+	          						</table>
+	          					</div>
+	          				</div>
+	          			</div>
+
+	          			<div class="w3-modal" id="id02">
+	          				<div class="w3-modal-content">
+	          					<div class="w3-container">
+	          						<span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+	          						<table class="w3-table w3-table-all">
+	          							<tr>
+	          								<th>Name</th><td><input type="text" name="" id="name"></td>
+	          							</tr>
+	          							<tr>
+	          								<th>Price</th><td><input type="text" name="" id="price"></td>
+	          							</tr>
+	          							<tr>
+	          								<th>Type</th><td><input type="text" name="" id="type"></td>
+	          							</tr>
+	          							<tr>
+	          								<th>Item ID</th><td><input type="text" name="" id="item_id"></td>
+	          							</tr>
+	          							<tr>
+	          								<th>Unit</th><td><input type="text" name="" id="unit"></td>
+	          							</tr>
+	          							<tr>
+	          								<th>Description</th><td><textarea id="descp"></textarea></td>
+	          							</tr>
+	          							<tr>
+	          								<th></th><td><button onclick="addNewItem()" class="w3-button w3-blue">Add Item</button></td>
+	          							</tr>
+	          						</table>
+	          					</div>
+	          				</div>
 	          			</div>
 	          		</div>
 	          	</div>
