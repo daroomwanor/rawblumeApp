@@ -28,7 +28,7 @@ def addNewItem():
 			category = data['type'],
 			item_id= data['item_id'],
 			unit = data['unit'],
-			description = data['description'])
+			description = data['descp'])
 		db.session.add(Item)
 		db.session.commit()
 		return "Success"
