@@ -5,20 +5,20 @@ from rawblumeApp import app, db
 from rawblumeApp.models import UsersTable
 import json
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def index():
 	Users = UsersTable.query.with_entities(UsersTable.firstname).all()
 	return render_template('index.html', data=Users)
 
 
-@app.route("/Admin_Panel")
+@app.route("/Admin_Panel", methods=['GET', 'POST'])
 def Admin_Panel():
 	Users = UsersTable.query.with_entities(UsersTable.firstname).all()
 	return render_template('Admin_Panel.html',data=Users)
 
 
 
-@app.route("/processLogin")
+@app.route("/processLogin", methods=['GET', 'POST'])
 def processLogin():
 	data = json.loads(request.data)
 	print(data)
@@ -30,7 +30,7 @@ def processLogin():
 		return "Success"
 
 
-@app.route("/addNewUser")
+@app.route("/addNewUser", methods=['GET', 'POST'])
 def addNewUser():
 	users = UsersTable(
 		firstname="Admin",
