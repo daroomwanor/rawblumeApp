@@ -1,0 +1,48 @@
+
+		<div id="inventoryCmp">
+			<table class="w3-table w3-table-all">
+				{% for d in data %}
+					<tr>
+						<td>{{d[1]}}</td>
+						<td>{{d[2]}}</td>
+						<td>{{d[3]}}</td>
+						<td>{{d[4]}}</td>
+						<td>{{d[5]}}</td>
+						<td>{{d[6]}}</td>
+						<td onclick="selectItem(this)" data-record="{{d[0]}}"><i class="fa fa-edit" style="font-size:15px"></i></td>
+						<td onclick="deleteItem(this)" data-record="{{d[0]}}"><i class="fa fa-remove" style="font-size:15px"></i></td>
+					</tr>
+				{% endfor %}
+			</table>
+			<div class="w3-modal" id="inventoryModal">
+  				<div class="w3-modal-content">
+  					<div class="w3-container">
+  						<span onclick="document.getElementById('inventoryModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+  						<table class="w3-table w3-table-all">
+  							<tr>
+  								<th>Name</th><td><input type="text" name="" id="name"><input type="hidden" name="" id="pid"></td>
+  							</tr>
+  							<tr>
+  								<th>Price</th><td><input type="text" name="" id="price"></td>
+  							</tr>
+  							<tr>
+  								<th>Type</th><td><input type="text" name="" id="type"></td>
+  							</tr>
+  							<tr>
+  								<th>Item ID</th><td><input type="text" name="" id="item_id"></td>
+  							</tr>
+  							<tr>
+  								<th>Unit</th><td><input type="text" name="" id="unit"></td>
+  							</tr>
+  							<tr>
+  								<th>Description</th><td><textarea id="descp"></textarea></td>
+  							</tr>
+  							<tr>
+  								<th></th><td><button onclick="updateInventory()" class="w3-button w3-blue">Update</button></td>
+  							</tr>
+
+  						</table>
+  					</div>
+  				</div>
+  			</div>
+		</div>

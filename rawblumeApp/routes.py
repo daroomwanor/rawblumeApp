@@ -8,13 +8,59 @@ import json
 @app.route("/", methods=['GET', 'POST'])
 def index():
 	Users = UsersTable.query.with_entities(UsersTable.firstname).all()
-	return render_template('index.html', data=Users)
+	return render_template('index.html')
 
 
 @app.route("/Admin_Panel", methods=['GET', 'POST'])
 def Admin_Panel():
 	Users = UsersTable.query.with_entities(UsersTable.firstname).all()
-	return render_template('Admin_Panel.html',data=Users)
+	return render_template('Admin_Panel.html', data=Users)
+
+@app.route("/getInventoryList", methods=['GET', 'POST'])
+def getInventoryList():
+	Items = InventoryTable.query.with_entities(InventoryTable.id, InventoryTable.name, InventoryTable.price, InventoryTable.category, InventoryTable.item_id,
+		InventoryTable.unit, InventoryTable.description).all()
+	data =[]
+	for item in Items:
+		data.append([item[0],item[1],item[2],item[3],item[4],item[5],item[6].decode('utf-8')])
+	return render_template('inventory.html', data = data)
+
+@app.route("/getInventory", methods=['GET', 'POST'])
+def getInventory():
+	data = json.loads(request.data)
+	res = []
+	Items = InventoryTable.query.filter(InventoryTable.id == data['id']).with_entities(InventoryTable.id, InventoryTable.name, InventoryTable.price, InventoryTable.category, InventoryTable.item_id,
+		InventoryTable.unit,InventoryTable.description).all()
+	data =[]
+	for item in Items:
+		data.append([item[0],item[1],item[2],item[3],item[4],item[5],item[6].decode('utf-8')])
+	resp = {
+	'data': data
+	}
+	return resp
+@app.route("/updateInventory", methods=['GET', 'POST'])
+def updateInventory():
+	data = json.loads(request.data)
+	item = InventoryTable.query.filter(InventoryTable.id == data['pid']).one()
+	if item:
+		item.name = data['name']
+		item.price = data['price']
+		item.category = data['type']
+		item.item_id = data['item_id']
+		item.unit = data['unit']
+		item.description = data['descp'].encode('utf-8')
+		db.session.commit()
+		return "Success"
+	else:
+		return "Failed"
+
+@app.route("/deleteInventory", methods=['GET', 'POST'])
+def deleteInventory():
+	data = json.loads(request.data)
+	Item = InventoryTable.query.filter(InventoryTable.id == data['id']).one()
+	db.session.delete(Item)
+	db.session.commit()
+	return "Success"
 
 
 @app.route("/addNewItem", methods=['GET', 'POST'])
@@ -28,7 +74,7 @@ def addNewItem():
 			category = data['type'],
 			item_id= data['item_id'],
 			unit = data['unit'],
-			description = data['descp'])
+			description = data['descp'].encode('utf-8'))
 		db.session.add(Item)
 		db.session.commit()
 		return "Success"

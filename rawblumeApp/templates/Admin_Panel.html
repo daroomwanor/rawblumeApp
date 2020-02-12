@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" data-ng-app>
 	<head>
 		<title>Admin Panel</title>
 		<meta charset="UTF-8">
@@ -13,11 +14,8 @@
 			html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		</style>
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/Admin_Panel.css') }}">
-		<link rel="stylesheet" href="/Users/omwanord/ArielApps/rawblumeApp/rawblumeApp/static/css/Admin_Panel.css">
-		<script type="text/javascript" src="/Users/omwanord/ArielApps/rawblumeApp/rawblumeApp/static/js/Admin_Panel.js"></script>
 	</head>
-	<body >
-		<script type="text/javascript" src="{{url_for('static', filename="js/Admin_Panel.js")}}"></script>
+	<body ng-app="adminApp" ng-controller="adminCtrl">
 		<div id="centered" style="display: None;">
 			<table>
 				<tr>
@@ -32,14 +30,13 @@
 			</table>
 
 		</div>
-		<div id="main_container" ng-app="adminApp" ng-controller="adminCtrl">
+		<div id="main_container">
 			<div id="horizontal_navbar" style="position: fixed;">
           		<div class="w3-top" style="background-color: #dcdcdc;height: 52px;width: 100%">
 					 <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
 						  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-						  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i  style='font-size:20px' class="fa fa-home w3-margin-right"></i>Admin Panel</a>
-						  
-						  <a  style="float: right;" href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="User">{{username}} <i style='font-size:24px' class='fa'>&#xf2be;</i></a>
+						  <a ng-click="adminHome()" href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i  style='font-size:20px' class="fa fa-home w3-margin-right"></i>Admin Panel</a>
+						  <a  style="float: right;" href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="User"><span>[[username]]</span> <i class="fa fa-user" style="font-size:24px"></i></a>
 						  
 					 </div>
 				</div>
@@ -48,7 +45,7 @@
           		<div style="height: 200px; border: solid 1px black; margin-top: 120px;float: left;width:3%;padding-left: 4px;min-width: 38px;float: left;">
           			<div>
           				<div class="vertical_navbar">
-	          				<i style='font-size:20px' class="fa fa-dashboard"></i>
+	          				<i class="fa fa-line-chart" style="font-size:20px" ng-click="adminHome()"></i>
 	          			</div>
           				<div class="vertical_navbar">
 	          				<i style='font-size:20px' class="fa fa-users"></i>
@@ -56,7 +53,7 @@
 	          			<div class="vertical_navbar">
 	          				<i style='font-size:20px' class="fa fa-reorder"></i>
 	          			</div>
-	          			<div class="vertical_navbar">
+	          			<div class="vertical_navbar" ng-click="getInventory()">
 	          				<i  style='font-size:20px' class="fa fa-building"></i>
 
 	          			</div>          			
@@ -75,6 +72,10 @@
 	          						<td><span onclick="addNewItemModal()" class="w3-card w3-right w3-blue w3-hover-shadow w3-center actionBtn"><i class="fa">&#xf07a;</i></span></td>
 	          					</tr>
 	          				</table>
+	          			</div>
+	          			<div id="display_content">
+	          				<h1>Dashboard</h1>
+
 	          			</div>
 	          			<div class="w3-modal" id="id01">
 	          				<div class="w3-modal-content">
@@ -111,25 +112,25 @@
 	          						<span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-display-topright">&times;</span>
 	          						<table class="w3-table w3-table-all">
 	          							<tr>
-	          								<th>Name</th><td><input type="text" name="" id="name"></td>
+	          								<th>Name</th><td><input type="text" name="" id="new_name"></td>
 	          							</tr>
 	          							<tr>
-	          								<th>Price</th><td><input type="text" name="" id="price"></td>
+	          								<th>Price</th><td><input type="text" name="" id="new_price"></td>
 	          							</tr>
 	          							<tr>
-	          								<th>Type</th><td><input type="text" name="" id="type"></td>
+	          								<th>Type</th><td><input type="text" name="" id="new_type"></td>
 	          							</tr>
 	          							<tr>
-	          								<th>Item ID</th><td><input type="text" name="" id="item_id"></td>
+	          								<th>Item ID</th><td><input type="text" name="" id="new_item_id"></td>
 	          							</tr>
 	          							<tr>
-	          								<th>Unit</th><td><input type="text" name="" id="unit"></td>
+	          								<th>Unit</th><td><input type="text" name="" id="new_unit"></td>
 	          							</tr>
 	          							<tr>
-	          								<th>Description</th><td><textarea id="descp"></textarea></td>
+	          								<th>Description</th><td><textarea id="new_descp"></textarea></td>
 	          							</tr>
 	          							<tr>
-	          								<th></th><td><button onclick="addNewItem()" class="w3-button w3-blue">Add Item</button></td>
+	          								<th></th><td><button ng-click="addNewItem()" class="w3-button w3-blue">Add Item</button></td>
 	          							</tr>
 	          						</table>
 	          					</div>
@@ -139,5 +140,6 @@
 	          	</div>
           	</div>
 		</div>
+		<script type="text/javascript" src="{{url_for('static', filename='js/Admin_Panel.js') }}"></script>
 	</body>
 </html>
